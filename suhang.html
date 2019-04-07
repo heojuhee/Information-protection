@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>메인화면</title>
+    <style>
+        .box {
+            border: 1px solid;
+            padding: 10px;
+            height: 500px;
+        }
+
+        .input_text {
+            height: 26px;
+            width: 200px;
+            font-size: 15pt;
+        }
+
+        .button {
+            height: 30px;
+            width: 120px;
+            font-size: 13pt;
+            background-color: rgb(248, 222, 174);
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>시저 암호 구현</h1>
+        암호화 할 평문을 입력하세요 :&nbsp;
+        <input type="text" class="input_text" placeholder="암호활할문장입력">
+        <input type="submit" class="button" value="암호화하기" onclick="answer()">
+    </div>
+    <script>
+        function answer() {
+            var arr = new Array(); //배열선언
+            var output, input_text;
+            var input = document.getElementById("input_text");
+            var aa = input;
+            var bb = document.write(aa.length);
+
+            for (i = 0; i < bb; i++)
+                output += arr(bb[i]);
+
+            alert(output);
+        }
+        function arr(c) {
+            if (isupper(c))
+                c = (((c - 65) + 5) % 26) + 65;
+            else if (islower(c))
+                c = (((c - 97) + 5) % 26) + 97;
+        }
+    </script>
+</body>
+
+</html>
