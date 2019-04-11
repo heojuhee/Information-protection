@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -34,25 +34,89 @@
         <input type="submit" class="button" value="암호화하기" onclick="answer()">
     </div>
     <script>
-        function answer() {
-            var arr = new Array(); //배열선언
-            var output, input_text;
-            var input = document.getElementById("input_text").value;
-            var aa = input;
-            var bb = aa.length;
+        // function answer() {
+        //     var arr = new Array(); //배열선언
+        //     var output, input_text;
+        //     var input = document.getElementById("input_text").value;
+        //     var aa = input;
+        //     var bb = aa.length;
 
-            for (i = 0; i < bb; i++)
-                output += arr(bb[i]);
+        //     for (i = 0; i < bb; i++)
+        //         output += arr(bb[i]);
+
+        //     return false;
+        // }
+        // function arr(c) {
+        //     if (isupper(c))
+        //         c = (((c - 65) + 5) % 26) + 65;
+        //     else if (islower(c))
+        //         c = (((c - 97) + 5) % 26) + 97;
+        // }
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <form action="#" method="#">
+        <fieldset style="width:650px;">
+            <legend>Caesar Password</legend>
+            <table align="center">
+                <tr>
+                    <td>평문을 입력해주세요.</td>
+                    <td>
+                        <input type="text" id="key_input">
+                    </td>
+                    <td>
+                        <button onclick="Caesar()">암호화하기</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>암호화된 문자 :</td>
+                    <td>
+                        <input type="text" id="output" disabled>
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+    <script>
+        function Caesar() {
+
+            var key = document.getElementById("key_input").value;
+            var str = '';
+
+            for (let i = 0; i < key.length; i++) {
+                let temp;
+                if (key[i] != ' ') {
+                    temp = key.charCodeAt(i) + 3;
+                } else {
+                    temp = ' ';
+                }
+
+                if (temp >= 91 && temp <= 97) { // 대문자일 때
+                    temp -= 26;
+                }
+
+                if (temp >= 123) { // 소문자일 때
+                    temp -= 26;
+                }
+
+                str = str + String.fromCharCode(temp);
+                document.getElementById("output").value = str;
+            }
 
             return false;
         }
-        function arr(c) {
-            if (isupper(c))
-                c = (((c - 65) + 5) % 26) + 65;
-            else if (islower(c))
-                c = (((c - 97) + 5) % 26) + 97;
-        }
     </script>
+
 </body>
 
 </html>
